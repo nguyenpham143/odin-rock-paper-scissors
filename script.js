@@ -14,9 +14,6 @@ function getHumanChoice() {
     else return "";
 }
 
-let humanScore = 0;
-let computerScore = 0;
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === "rock") {
         if (computerChoice === "rock") {
@@ -49,4 +46,22 @@ function playRound(humanChoice, computerChoice) {
             console.log("It's a tie!");
         }
     }
+}
+
+let humanScore = 0;
+let computerScore = 0;
+
+function playGame() {    
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    
+    if (humanScore < computerScore) console.log("Computer is the winner!");
+    else if (humanScore > computerScore) console.log("You are the winner!");
+    else console.log("It's a tie!");
+
+    humanScore = 0;
+    computerScore = 0;
 }
